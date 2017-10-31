@@ -12,6 +12,8 @@ namespace main_savitch_14
     class game
     {
     public:
+	void clear() const;
+
     	// ENUM TYPE
 	enum who { HUMAN, NEUTRAL, COMPUTER }; // Possible game outcomes
 	

@@ -17,7 +17,10 @@ namespace main_savitch_14
     // *************************************************************************
     // PUBLIC MEMBER FUNCTIONS
 
-
+void game::clear() const
+{
+	std::cout << "\x1B[2J\x1B[H";
+}
 
 game::who game::play( )
     // The play function should not be overridden. It plays one round of the
@@ -27,6 +30,7 @@ game::who game::play( )
 	restart( );
 	while (!is_game_over( ))
 	{
+	    clear();
 	    display_status( );
 	    if (last_mover( ) == COMPUTER)
 		make_human_move( );
