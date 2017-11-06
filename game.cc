@@ -56,6 +56,9 @@ game::who game::play( )
 	
 	display_message("Your move, please: ");
 	getline(cin, answer);
+	for(int i = 0; i < answer.length(); i++){
+		answer[i] = tolower(answer[i]);
+	}
 	return answer;
     }
 
