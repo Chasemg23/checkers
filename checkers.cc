@@ -14,42 +14,37 @@ checkers::checkers(){
 	int i, k;
 	blackcount = 12;
 	redcount = 12;
-	for(i = 0; i < 8; i++){
-		for(k = 0; k < 8; k++){
-			board[k][i].setempty(true);
-			board[k][i].setred(false);
-			board[k][i].setking(false);
-		}
-	}
-	for(i = 0; i < 3; i++) {
-		if(i == 0 || i == 2){
-			for(k = 1; k < 8; k = k+2) {
-				board[k][i].setempty(false);
-				board[k][i].setred(false);
-				board[k][i].setking(false);
-			}
-		}
-		else if (i == 1) {
-			for(k = 0; k < 8; k = k+2) {
-				board[k][i].setempty(false);
-				board[k][i].setred(false);
-				board[k][i].setking(false);
-			}
-		}
-	}
-	for(i = 7; i >= 5; i--) {
-		if(i == 7 || i == 5) {
-			for(k = 0; k < 8; k = k+2){
-                                board[k][i].setempty(false);
-                                board[k][i].setred(true);
-                                board[k][i].setking(false);
-			}
-		}
-		else if (i == 6) {
-			for(k = 1; k < 8; k = k+2) {
-                                board[k][i].setempty(false);
-                                board[k][i].setred(true);
-                                board[k][i].setking(false);
+
+	for(i = 0; i < 8; i++) {
+		for(k = 0; k < 8; k++) {
+			if(k == 0 || k == 2) {
+				if(i % 2 == 1) {
+					board[i][k].setempty(false);
+					board[i][k].setred(false);
+					board[i][k].setking(false);
+				}
+			} else if(k == 1) {
+				if(i % 2 == 0) {
+					board[i][k].setempty(false);
+					board[i][k].setred(false);
+					board[i][k].setking(false);
+				}
+			} else if(k == 5 || k == 7) {
+				if(i % 2 == 0) {
+					board[i][k].setempty(false);
+					board[i][k].setred(true);
+					board[i][k].setking(false);
+				}
+			}else if(k == 6) {
+				if(i % 2 == 1) {
+					board[i][k].setempty(false);
+					board[i][k].setred(true);
+					board[i][k].setking(false);
+				}
+			}else {
+				board[i][k].setempty(true);
+				board[i][k].setred(false);
+				board[i][k].setking(false);
 			}
 		}
 	}
