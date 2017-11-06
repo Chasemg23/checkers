@@ -61,7 +61,7 @@ void checkers::display_status() const{
 	cout << "  ";
 	for(i = 1; i <= 8; i++) {
 		cout << " " << letter << " ";
-		letter ++;
+		letter++;
 	}
 	cout << endl;
 

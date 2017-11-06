@@ -30,7 +30,7 @@ game::who game::play( )
 	restart( );
 	while (!is_game_over( ))
 	{
-	    clear();
+	    clear( );
 	    display_status( );
 	    if (last_mover( ) == COMPUTER)
 		make_human_move( );
