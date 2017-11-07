@@ -1,4 +1,5 @@
 CS 3560 Term Project Repository
+
 Game: Checkers
 
 Jordan Ward			jw363912@ohio.edu
