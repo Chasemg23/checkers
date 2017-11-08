@@ -10,40 +10,40 @@ using namespace std;
 namespace main_savitch_14 {
 
 	checkers::checkers(){
-		int i, k;
+		int i, j;
 		blackcount = 12;
 		redcount = 12;
 
 		for(i = 0; i < 8; i++) {
-			for(k = 0; k < 8; k++) {
-				if(k == 0 || k == 2) {
+			for(j = 0; j < 8; j++) {
+				if(j == 0 || j == 2) {
 					if(i % 2 == 1) {
-						board[i][k].setempty(false);
-						board[i][k].setred(false);
-						board[i][k].setking(false);
+						board[i][j].setempty(false);
+						board[i][j].setred(false);
+						board[i][j].setking(false);
 					}
-				} else if(k == 1) {
+				} else if(j == 1) {
 					if(i % 2 == 0) {
-						board[i][k].setempty(false);
-						board[i][k].setred(false);
-						board[i][k].setking(false);
+						board[i][j].setempty(false);
+						board[i][j].setred(false);
+						board[i][j].setking(false);
 					}
-				} else if(k == 5 || k == 7) {
+				} else if(j == 5 || j == 7) {
 					if(i % 2 == 0) {
-						board[i][k].setempty(false);
-						board[i][k].setred(true);
-						board[i][k].setking(false);
+						board[i][j].setempty(false);
+						board[i][j].setred(true);
+						board[i][j].setking(false);
 					}
-				}else if(k == 6) {
+				}else if(j == 6) {
 					if(i % 2 == 1) {
-						board[i][k].setempty(false);
-						board[i][k].setred(true);
-						board[i][k].setking(false);
+						board[i][j].setempty(false);
+						board[i][j].setred(true);
+						board[i][j].setking(false);
 					}
 				}else {
-					board[i][k].setempty(true);
-					board[i][k].setred(false);
-					board[i][k].setking(false);
+					board[i][j].setempty(true);
+					board[i][j].setred(false);
+					board[i][j].setking(false);
 				}
 			}
 		}
@@ -97,42 +97,42 @@ namespace main_savitch_14 {
 
 	bool checkers::is_legal(const string& move) const{
 		char c;
-		int st1, st2, en1, en2;
+		int col1, row1, col2, row2;
 		c = move[0];
-		st1 = c - '0';
-		st1 -= 48;
+		col1 = c - '0';
+		col1 -= 48;
 	
 		c = move[1];
-		st2 = c - '0';
+		row1 = c - '0';
 
 		c = move[2];
-		en1 = c - '0';
-		en1 -= 48;
+		col2 = c - '0';
+		col2 -= 48;
 
 		c = move[3];
-		en2 = c - '0';
+		row2 = c - '0';
 
-		if(board[st1-1][st2-1].isempty())
+		if(board[col1-1][row1-1].isempty())
 			return false;
-		if(!(board[en1-1][en2-1].isempty()))
+		if(!(board[col2-1][row2-1].isempty()))
         		return false;
 
 		//MOVES ALLOWED FOR NORMAL PIECES
-		if(!board[st1-1][st2-1].isking()) {
+		if(!board[col1-1][row1-1].isking()) {
 			//MOVES ALLOWED FOR HUMANS
 			if(next_mover() == HUMAN){
-				if(board[st1-1][st2-1].isred()){
-					if(en2 == st2-1){
-						if(en1 == st1-1 || en1 == st1+1)
+				if(board[col1-1][row1-1].isred()){
+					if(row2 == row1-1){
+						if(col2 == col1-1 || col2 == col1+1)
 							return true;
 						else
 							return false;
 					}
 					//JUMPING MOVES
-					else if(en2 == st2 - 2) {
-						if(en1 == st1 - 2) {
-							if(!board[st1-2][st2-2].isempty()) {
-								if(!board[st1-2][st2-2].isred())
+					else if(row2 == row1 - 2) {
+						if(col2 == col1 - 2) {
+							if(!board[col1-2][row1-2].isempty()) {
+								if(!board[col1-2][row1-2].isred())
 									return true;
 								else
 									return false;
@@ -140,9 +140,9 @@ namespace main_savitch_14 {
 							else
 								return false;
 						}
-						else if(en1 == st1 + 2) {
-							if(!board[st1][st2-2].isempty()) {
-								if(!board[st1][st2-2].isred())
+						else if(col2 == col1 + 2) {
+							if(!board[col1][row1-2].isempty()) {
+								if(!board[col1][row1-2].isred())
 									return true;
 								else
 									return false;
@@ -162,18 +162,18 @@ namespace main_savitch_14 {
 
 			//MOVES ALLOWED FOR COMPUTER
 			else if(next_mover() == COMPUTER) {
-				if(!board[st1-1][st2-1].isred()){
-					if(st2 == en2 -1) {
-						if(en1 == st1-1 || en1 == st1+1)
+				if(!board[col1-1][row1-1].isred()){
+					if(row1 == row2 -1) {
+						if(col2 == col1-1 || col2 == col1+1)
 							return true;
 						else
 							return false;
 					}
 					//JUMPING MOVES
-					else if(en2 == st2 + 2) {
-						if(en1 == st1 + 2) {
-							if(!board[st1][st2].isempty()) {
-								if(board[st1][st2].isred())
+					else if(row2 == row1 + 2) {
+						if(col2 == col1 + 2) {
+							if(!board[col1][row1].isempty()) {
+								if(board[col1][row1].isred())
 									return true;
 								else
 									return false;
@@ -181,9 +181,9 @@ namespace main_savitch_14 {
 							else
 								return false;
 						}
-						else if(en1 == st1 - 2) {
-							if(!board[st1-2][st2].isempty()){
-								if(board[st1-2][st2].isred())
+						else if(col2 == col1 - 2) {
+							if(!board[col1-2][row1].isempty()){
+								if(board[col1-2][row1].isred())
 									return true;
 								else
 									return false;
@@ -204,19 +204,19 @@ namespace main_savitch_14 {
 
 		//MOVES ALLOWED FOR KINGS
 		else {
-			if(next_mover() == HUMAN && !board[st1-1][st2-1].isred())
+			if(next_mover() == HUMAN && !board[col1-1][row1-1].isred())
 				return false;
-			if(next_mover() == COMPUTER  && board[st1-1][st2-1].isred())
+			if(next_mover() == COMPUTER  && board[col1-1][row1-1].isred())
 				return false;
-			if(st2 == en2 - 1 || st2 == en2+1) {
-				if(en1 == st1 -1 || en1 == st1+1)
+			if(row1 == row2 - 1 || row1 == row2+1) {
+				if(col2 == col1 -1 || col2 == col1+1)
 					return true;
 				else
 					return false;
-			} else if(en2 == st2 + 2) {
-				if(en1 == st1 + 2){
-					if(!board[st1][st2].isempty()) {
-						if(board[st1-1][st2-1].isred() != board[st1][st2].isred())
+			} else if(row2 == row1 + 2) {
+				if(col2 == col1 + 2){
+					if(!board[col1][row1].isempty()) {
+						if(board[col1-1][row1-1].isred() != board[col1][row1].isred())
 							return true;
 						else
 							return false;
@@ -224,9 +224,9 @@ namespace main_savitch_14 {
 					else
 						return false;
 				}
-				else if(en1 == st1 - 2){
-					if(!board[st1-2][st2].isempty()) {
-						if(board[st1-1][st2-1].isred() != board[st1-2][st2].isred())
+				else if(col2 == col1 - 2){
+					if(!board[col1-2][row1].isempty()) {
+						if(board[col1-1][row1-1].isred() != board[col1-2][row1].isred())
 							return true;
 						else
 							return false;
@@ -236,10 +236,10 @@ namespace main_savitch_14 {
 				}
 				else
 					return false;
-			} else if (en2 == st2 - 2) {
-				if(en1 == st1 + 2){
-					if(!board[st1][st2-2].isempty()) {
-						if(board[st1-1][st2-1].isred() != board[st1][st2-2].isred())
+			} else if (row2 == row1 - 2) {
+				if(col2 == col1 + 2){
+					if(!board[col1][row1-2].isempty()) {
+						if(board[col1-1][row1-1].isred() != board[col1][row1-2].isred())
 							return true;
 						else
 							return false;
@@ -247,9 +247,9 @@ namespace main_savitch_14 {
 					else
 						return false;
 				}
-				else if(en1 == st1 -2) {
-					if(!board[st1-2][st2-2].isempty()) {
-						if(board[st1-1][st2-1].isred() != board[st1-2][st2-2].isred())
+				else if(col2 == col1 -2) {
+					if(!board[col1-2][row1-2].isempty()) {
+						if(board[col1-1][row1-1].isred() != board[col1-2][row1-2].isred())
 							return true;
 						else
 							return false;
@@ -267,74 +267,74 @@ namespace main_savitch_14 {
 	}
 
 	void checkers::make_move(const string& move){
-		int st1,st2,en1,en2;
+		int col1,row1,col2,row2;
 		char c;
 		space tmp;
 
 		c = move[0];
-		st1 = c - '0';
-		st1 -= 48;
+		col1 = c - '0';
+		col1 -= 48;
 
 		c = move[1];
-		st2 = c - '0';
+		row1 = c - '0';
 
 		c = move[2];
-		en1 = c - '0';
-		en1 -= 48;
+		col2 = c - '0';
+		col2 -= 48;
 
 		c = move[3];
-		en2 = c - '0';
+		row2 = c - '0';
 	
- 		tmp = board[en1-1][en2-1];
-		board[en1-1][en2-1] = board[st1-1][st2-1];
-		board[st1-1][st2-1] = tmp;
+ 		tmp = board[col2-1][row2-1];
+		board[col2-1][row2-1] = board[col1-1][row1-1];
+		board[col1-1][row1-1] = tmp;
 
-		if(en2 == 1 || en2 == 8)
-			board[en1-1][en2-1].setking(true);
+		if(row2 == 1 || row2 == 8)
+			board[col2-1][row2-1].setking(true);
 		
-		if(en2 == st2 - 2){
-			if(en1 == st1 + 2){
-				if(board[st1][st2-2].isred())
+		if(row2 == row1 - 2){
+			if(col2 == col1 + 2){
+				if(board[col1][row1-2].isred())
 					redcount--;
 				else
 					blackcount--;
-				board[st1][st2-2].setempty(true);
-			} else if(en1 == st1 - 2) {
-				if(board[st1-2][st2-2].isred())
+				board[col1][row1-2].setempty(true);
+			} else if(col2 == col1 - 2) {
+				if(board[col1-2][row1-2].isred())
 					redcount--;
 				else
 					blackcount--;
-				board[st1-2][st2-2].setempty(true);
+				board[col1-2][row1-2].setempty(true);
 			}
 		}
-		else if(en2 == st2 + 2){
-			if(en1 == st1 + 2) {
-				if(board[st1][st2].isred())
+		else if(row2 == row1 + 2){
+			if(col2 == col1 + 2) {
+				if(board[col1][row1].isred())
 					redcount--;
 				else
 					blackcount--;
-				board[st1][st2].setempty(true);
-			} else if(en1 == st1 - 2) {
-				if(board[st1-2][st2].isred())
+				board[col1][row1].setempty(true);
+			} else if(col2 == col1 - 2) {
+				if(board[col1-2][row1].isred())
 					redcount--;
 				else
 					blackcount--;
-				board[st1-2][st2].setempty(true);
+				board[col1-2][row1].setempty(true);
 			}
 		}
 
 
-		if(en2 == st2 + 2 || en2 == st2 - 2) {
-			if(!board[en1-2][en2-2].isempty() && !board[en1-2][en2-2].isred())
+		if(row2 == row1 + 2 || row2 == row1 - 2) {
+			if(!board[col2-2][row2-2].isempty() && !board[col2-2][row2-2].isred())
 
-				if(board[en1-1][en2-1].isred()) 
+				if(board[col2-1][row2-1].isred()) 
 
-					if(board[en1-1][en2-1].isking()) {
-						if(board[en1-2][en2-2].isred() != board[en1-1][en2-1].isred())
-							if(board[en1-3][en2-3].isempty()) {
-								tmp = board[en1-3][en2-3];
-								board[en1-3][en2-3] = board[en1-1][en2-1];
-								board[en1-1][en2-1] = tmp;
+					if(board[col2-1][row2-1].isking()) {
+						if(board[col2-2][row2-2].isred() != board[col2-1][row2-1].isred())
+							if(board[col2-3][row2-3].isempty()) {
+								tmp = board[col2-3][row2-3];
+								board[col2-3][row2-3] = board[col2-1][row2-1];
+								board[col2-1][row2-1] = tmp;
 							}
 					}
 			
