@@ -30,7 +30,7 @@ game::who game::play( )
 	restart( );
 	while (!is_game_over( ))
 	{
-	    clear();
+	    clear( );
 	    display_status( );
 	    if (last_mover( ) == COMPUTER)
 		make_human_move( );
@@ -56,6 +56,9 @@ game::who game::play( )
 	
 	display_message("Your move, please: ");
 	getline(cin, answer);
+	for(int i = 0; i < answer.length(); i++){
+		answer[i] = tolower(answer[i]);
+	}
 	return answer;
     }
 

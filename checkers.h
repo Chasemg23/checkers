@@ -1,16 +1,18 @@
 //Chase Gindlesperger
 //Checkers.h
 
+#ifndef CHECKERS_H
+#define CHECKERS_H
 
+#include <iostream>
 #include "colors.h"
 #include "game.h"
 #include "space.h"
-#include <iostream>
+
 using namespace std;
 
-#ifndef CHECKERS_H
-#define CHECKERS_H
 namespace main_savitch_14 {
+
 	class checkers : public game{
 		public:
 			checkers();
@@ -23,9 +25,11 @@ namespace main_savitch_14 {
 			bool is_game_over() const;
 			void restart();
 			game::who winning() const;
+		
 		private:
 			space board[8][8];
-			int redcount,blackcount;
+			int redcount;
+			int blackcount;
 	};
 }
 #endif
