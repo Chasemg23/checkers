@@ -60,43 +60,110 @@ void checkers::restart() {
 }
 
 void checkers::display_status() const{
-        int i, k;
+        int i, k,j;
 	char letter;
 	letter = 'A';
 	cout << "  ";
 	for(i = 1; i <= 8; i++) {
-		cout << " " << letter << " ";
+		cout << "     " << letter << "   ";
 		letter ++;
 	}
 	cout << endl;
 
         for(i = 0; i < 8; i ++){
-		cout << RESET << i+1 << " ";
 
                 if(i % 2 == 0){ // Even Rows
+			
+			cout << RESET << "   ";
+	
+			for(j=0; j < 8; j++) {
+				//cout << "  ";
+				if(j % 2 == 0){
+					cout << B_BLACK << "         ";
+				} else {
+					cout << B_WHITE << "         ";
+				}
+			}
+			cout << RESET << endl;
+
+			cout << RESET << " " << i+1 << " ";
+
                         for(k = 0; k < 8; k++){
-                                 if(k % 2 == 0){  //Even columns in even rows are red
+                                 if(k % 2 == 0){  //Even columns in even rows are black
+					cout << B_BLACK << "   ";
                                         cout << B_BLACK;
 					board[k][i].output();
-                                 } else { //Odd columns in even rows are black
+					cout << B_BLACK << "   ";
+                                 } else { //Odd columns in even rows are white
+					cout << B_WHITE << "   "; 
                                         cout << B_WHITE;
 					board[k][i].output();
+					cout << B_WHITE << "   ";
                                  }
                         }
+			cout << RESET << endl;
+
+			cout << RESET << "   ";
+
+
+                        for(j=0; j < 8; j++) {
+				//cout << "  ";
+                                if(j % 2 == 0){ 
+                                        cout << B_BLACK << "         ";
+                                } else {
+                                        cout << B_WHITE << "         ";
+                                }
+                        }
+
+
                         cout << RESET << endl;
                 }
 
                 else { // Odd Rows
+
+			cout << RESET << "   ";
+
+                        for(j=0; j < 8; j++) {
+                                //cout << "  ";
+                                if(j % 2 == 0){
+                                        cout << B_WHITE << "         ";
+                                } else {
+                                        cout << B_BLACK << "         ";
+                                }
+                        }
+			cout << RESET << endl;
+
+			cout << RESET << " " << i+1 << " ";
+
                         for(k = 0; k < 8; k++) {
-                                if(k % 2 == 0) { // Even columns in odd rows are black
-                                        cout << B_WHITE;
+                                if(k % 2 == 0) { // Even columns in odd rows are white
+                                     	cout << B_WHITE << "   ";
+					cout << B_WHITE;
 					board[k][i].output();
-                                } else { // Odd columns in odd rows are red
+					cout << B_WHITE << "   ";
+                                } else { // Odd columns in odd rows are black
+					cout << B_BLACK << "   ";
 					cout << B_BLACK;
 					board[k][i].output();
+					cout << B_BLACK << "   ";
                                 }
-                         }
+                        }
+
                         cout << RESET << endl;
+
+			cout << RESET << "   ";
+
+                        for(j=0; j < 8; j++) {
+                                //cout << "  ";
+                                if(j % 2 == 0){
+                                        cout << B_WHITE << "         ";
+                                } else {
+                                        cout << B_BLACK << "         ";
+                                }
+                        }
+                        cout << RESET << endl;
+
+
                 }
         }
 }
