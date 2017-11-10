@@ -50,6 +50,11 @@ namespace main_savitch_14 {
 	}
 
 
+	void checkers::restart() {
+		checkers();
+	}
+
+
 void checkers::display_status() const{
         int i, k,j;
 	char letter;
@@ -158,48 +163,6 @@ void checkers::display_status() const{
                 }
         }
 }
-
-	void checkers::display_status() const{
-        	int i, k;
-		char letter;
-		letter = 'A';
-		cout << "  ";
-		for(i = 1; i <= 8; i++) {
-			cout << " " << letter << " ";
-			letter++;
-		}
-		cout << endl;
-
-        	for(i = 0; i < 8; i ++){
-			cout << RESET << i+1 << " ";
-	
-                	if(i % 2 == 0){ // Even Rows
-                        	for(k = 0; k < 8; k++){
-                                	if(k % 2 == 0){  //Even columns in even rows are red
-                                        	cout << B_BLACK;
-						board[k][i].output();
-                                 	} else { //Odd columns in even rows are black
-                                        	cout << B_WHITE;
-						board[k][i].output();
-                                 	}
-                        	}
-                        	cout << RESET << endl;
-                	}
-
-                	else { // Odd Rows
-                        	for(k = 0; k < 8; k++) {
-                                	if(k % 2 == 0) { // Even columns in odd rows are black
-                                        	cout << B_WHITE;
-						board[k][i].output();
-                                	} else { // Odd columns in odd rows are red
-						cout << B_BLACK;
-						board[k][i].output();
-                                	}
-                         	}
-                        	cout << RESET << endl;
-                	}
-        	}
-	}
 
 	bool checkers::is_legal(const string& move) const{
 		char c;
