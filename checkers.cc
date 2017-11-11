@@ -199,7 +199,7 @@ namespace main_savitch_14 {
 	        		cout << RESET << endl;
 			}
         	}
-}	
+	}	
 
 	bool checkers::is_legal(const string& move) const{
 		char c;
@@ -451,10 +451,12 @@ namespace main_savitch_14 {
 
 	bool checkers::is_game_over() const{
 		if(redcount == 0) {
-			cout << "Black Wins!";
+			clear();
+			cout << "Black Wins!" << endl;
 			return true;
 		} else if(blackcount == 0) {
-			cout << "Red Wins!";
+			clear();
+			cout << "Red Wins!" << endl;
 			return true;
 		} else
 			return false;
