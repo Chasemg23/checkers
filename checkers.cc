@@ -452,11 +452,11 @@ namespace main_savitch_14 {
 	bool checkers::is_game_over() const{
 		if(redcount == 0) {
 			clear();
-			cout << "Black Wins!" << endl;
+			cout << "\t\t\t\tBlack Wins!\n" << endl;
 			return true;
 		} else if(blackcount == 0) {
 			clear();
-			cout << "Red Wins!" << endl;
+			cout << "\t\t\t\tRed Wins!\n" << endl;
 			return true;
 		} else
 			return false;
