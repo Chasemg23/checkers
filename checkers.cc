@@ -41,9 +41,9 @@ namespace main_savitch_14 {
 						board[i][j].setking(false);
 					}
 				}else {
-					board[i][j].setempty(true);
-					board[i][j].setred(false);
-					board[i][j].setking(false);
+						board[i][j].setempty(true);
+						board[i][j].setred(false);
+						board[i][j].setking(false);
 				}
 			}
 		}
@@ -96,7 +96,7 @@ namespace main_savitch_14 {
         	}
 */
 	void checkers::display_status() const {
-        	int i, k, j;
+        int i, k, j;
 		char letter;
 		letter = 'A';
 		cout << "  ";
@@ -198,7 +198,7 @@ namespace main_savitch_14 {
                         	}
 	        		cout << RESET << endl;
 			}
-        	}
+        }
 	}	
 
 	bool checkers::is_legal(const string& move) const{
@@ -373,7 +373,7 @@ namespace main_savitch_14 {
 	}
 
 	void checkers::make_move(const string& move){
-		int col1,row1,col2,row2;
+		int col1, row1, col2, row2;
 		char c;
 		space tmp;
 
@@ -404,27 +404,33 @@ namespace main_savitch_14 {
 					redcount--;
 				else
 					blackcount--;
+
 				board[col1][row1-2].setempty(true);
-			} else if(col2 == col1 - 2) {
+				
+			}else if(col2 == col1 - 2) {
 				if(board[col1-2][row1-2].isred())
 					redcount--;
-				else
+                		else
 					blackcount--;
+
 				board[col1-2][row1-2].setempty(true);
 			}
-		}
-		else if(row2 == row1 + 2){
+
+        	}else if(row2 == row1 + 2) {
 			if(col2 == col1 + 2) {
 				if(board[col1][row1].isred())
 					redcount--;
 				else
 					blackcount--;
+
 				board[col1][row1].setempty(true);
-			} else if(col2 == col1 - 2) {
+
+			}else if(col2 == col1 - 2) {
 				if(board[col1-2][row1].isred())
 					redcount--;
 				else
 					blackcount--;
+
 				board[col1-2][row1].setempty(true);
 			}
 		}
