@@ -54,7 +54,7 @@ namespace main_savitch_14 {
 	}
 
 	void checkers::display_status() const{
-        	int i, k;
+        	int i, j;
 		char letter;
 		letter = 'A';
 		cout << "  ";
@@ -68,26 +68,26 @@ namespace main_savitch_14 {
 			cout << RESET << i+1 << " ";
 	
                 	if(i % 2 == 0){ // Even Rows
-                        	for(k = 0; k < 8; k++){
-                                	if(k % 2 == 0){  //Even columns in even rows are red
+                        	for(j = 0; j < 8; j++){
+                                	if(j % 2 == 0){  //Even columns in even rows are red
                                         	cout << B_BLACK;
-						board[k][i].output();
+						board[j][i].output();
                                  	} else { //Odd columns in even rows are black
                                         	cout << B_WHITE;
-						board[k][i].output();
+						board[j][i].output();
                                  	}
                         	}
                         	cout << RESET << endl;
                 	}
 
                 	else { // Odd Rows
-                        	for(k = 0; k < 8; k++) {
-                                	if(k % 2 == 0) { // Even columns in odd rows are black
+                        	for(j = 0; j < 8; j++) {
+                                	if(j % 2 == 0) { // Even columns in odd rows are black
                                         	cout << B_WHITE;
-						board[k][i].output();
+						board[j][i].output();
                                 	} else { // Odd columns in odd rows are red
 						cout << B_BLACK;
-						board[k][i].output();
+						board[j][i].output();
                                 	}
                          	}
                         	cout << RESET << endl;
