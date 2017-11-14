@@ -136,8 +136,12 @@ game::who game::play( )
 	game* future;
 	
 	// Compute all legal moves that the computer could make.
-	compute_moves(moves);	
-	assert(!moves.empty( ));
+	compute_moves(moves);
+	if(moves.empty()) {
+		move_number++;
+		make_human_move();
+	}	
+	//assert(!moves.empty( ));
 	
 	// Evaluate each possible legal move, saving the index of the best
 	// in best_index and saving its value in best_value.
