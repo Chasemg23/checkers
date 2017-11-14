@@ -1,4 +1,10 @@
-// File: game.cxx
+/// File: game.cxx
+
+/**
+ *	Code written by main_savitch_14
+ *      CS3560 Term Project
+ */
+
 
 #include <cassert>    // Provides assert
 #include <climits>    // Provides INT_MAX and INT_MIN
@@ -23,9 +29,9 @@ void game::clear() const
 }
 
 game::who game::play( )
-    // The play function should not be overridden. It plays one round of the
-    // game, with the human player moving first and the computer second.
-    // The return value is the winner of the game (or NEUTRAL for a tie).
+    /// The play function should not be overridden. It plays one round of the
+    /// game, with the human player moving first and the computer second.
+    /// The return value is the winner of the game (or NEUTRAL for a tie).
     {
 	restart( );
 	while (!is_game_over( ))
@@ -50,7 +56,11 @@ game::who game::play( )
 	cout << message;
     }
 
-    string game::get_user_move( ) 
+    string game::get_user_move( )
+
+    ///@brief prompts the user to make a move
+    ///@return string
+ 
     {
 	string answer;
 	
@@ -64,7 +74,9 @@ game::who game::play( )
 
     game::who game::winning( ) const
     {
-	int value = evaluate( ); // Evaluate based on move that was just made.
+	///@brief Evaluate based on move that was just made.
+	///@return game
+	int value = evaluate( );
 
 	if (value > 0)
 	    return last_mover( );
@@ -87,10 +99,10 @@ game::who game::play( )
     // The return value is large if the position is good for the player who just
     // moved. 
     {
-    	queue<string> moves;   // All possible opponent moves
-	int value;             // Value of a board position after opponent moves
-    	int best_value;        // Evaluation of best opponent move
-    	game* future;          // Pointer to a future version of this game
+    	queue<string> moves;   /// All possible opponent moves
+	int value;             /// Value of a board position after opponent moves
+    	int best_value;        /// Evaluation of best opponent move
+    	game* future;          /// Pointer to a future version of this game
 	
         // Base case:
 	if (look_ahead == 0 || is_game_over( ))
@@ -129,6 +141,8 @@ game::who game::play( )
 
     void game::make_computer_move( )
     {
+	///@brief allows the computer to make a move
+
 	queue<string> moves;
 	int value;
 	int best_value;

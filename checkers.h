@@ -1,6 +1,8 @@
-//Chase Gindlesperger
-//Checkers.h
-
+/**
+ *	Chase Gindlesperger
+ *	Checkers.h
+ *      CS3560 Term Project
+ */
 #ifndef CHECKERS_H
 #define CHECKERS_H
 
