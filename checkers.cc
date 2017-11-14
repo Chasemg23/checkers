@@ -1,5 +1,10 @@
-//Chase Gindlesperger
-//Checkers.cc
+/**
+ *	Chase Gindlesperger
+ *	Checkers.cc
+ *
+ *	CS3560 Term Project
+*/
+
 
 #include <string>
 #include "game.h"
@@ -202,6 +207,11 @@ namespace main_savitch_14 {
 	}	
 
 	bool checkers::is_legal(const string& move) const{
+
+	///@brief This function determines if a move is legal or illegal
+	///@param const string& move
+	///@return bool
+
 		char c;
 		int col1, row1, col2, row2;
 		c = move[0];
@@ -373,6 +383,11 @@ namespace main_savitch_14 {
 	}
 
 	void checkers::make_move(const string& move){
+
+	///@brief Allows for a move to be made
+	///@param const string& move
+	///@return void
+
 		int col1, row1, col2, row2;
 		char c;
 		space tmp;
@@ -456,6 +471,9 @@ namespace main_savitch_14 {
 
 
 	bool checkers::is_game_over() const{
+	///@brief Determines if the game is over
+	///@return bool
+
 		if(redcount == 0) {
 			clear();
 			cout << "\t\t\t\tBlack Wins!\n" << endl;
@@ -469,6 +487,10 @@ namespace main_savitch_14 {
 	}
 
 	void checkers::compute_moves(queue<string>& moves)const{
+	///@brief Computes moves for the computer
+	///@param queue<string>& moves
+	///@return void
+
 		string m = "    ";
 		char i,j,k,l;
         	for(i = '1'; i < '9'; i++) {
@@ -488,6 +510,9 @@ namespace main_savitch_14 {
 	}
 
 	game::who checkers::winning() const {
+	///@brief returns who is currently winning
+	///@return game
+ 
 		if(redcount > blackcount)
 			return HUMAN;
 		else if(blackcount > redcount)
@@ -497,6 +522,8 @@ namespace main_savitch_14 {
 	}
 
 	int checkers::evaluate()const{
+	///@brief returns who is currently winning based on the number of chips
+	///@return int
 		return blackcount - redcount;
 	}
 
