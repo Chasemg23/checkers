@@ -1,0 +1,15 @@
+Makefile has been updated
+
+make_move() function has been updated to take lowercase and captial letters as input
+
+A clear() function has been added to clear the screen so there aren't multiple checkers boards
+
+display_status() function has been updated to make a larger, more playable GUI
+
+Updated the play() function so the clear() function does what it should when it should
+
+Some doxygen documentation added
+
+Generated the doxygen config_file
+
+Generated the doxygen documentation
