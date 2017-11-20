@@ -1,0 +1,123 @@
+\hypertarget{classmain__savitch__14_1_1checkers}{}\section{main\+\_\+savitch\+\_\+14\+:\+:checkers Class Reference}
+\label{classmain__savitch__14_1_1checkers}\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+Inheritance diagram for main\+\_\+savitch\+\_\+14\+:\+:checkers\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmain__savitch__14_1_1checkers}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classmain__savitch__14_1_1checkers_afc7d56fe1f0637a02cad352e9cda9ee3}{is\+\_\+legal} (const string \&move) const
+\item 
+int \hyperlink{classmain__savitch__14_1_1checkers_a1705b4e1bfe04205ebb7703925b50f9f}{evaluate} () const
+\item 
+void \hyperlink{classmain__savitch__14_1_1checkers_a8a08c0555d5b8c264472cc94a2f007e3}{make\+\_\+move} (const string \&move)
+\item 
+void \hyperlink{classmain__savitch__14_1_1checkers_aa4b4867ee171d04f5473f4ca38a9729a}{compute\+\_\+moves} (queue$<$ string $>$ \&moves) const
+\item 
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_aa99f69ed300d81b6340f87b59ebba031}\label{classmain__savitch__14_1_1checkers_aa99f69ed300d81b6340f87b59ebba031}} 
+void {\bfseries display\+\_\+status} () const
+\item 
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_a716b963325b1455e63c25afe89d617d9}\label{classmain__savitch__14_1_1checkers_a716b963325b1455e63c25afe89d617d9}} 
+\hyperlink{classmain__savitch__14_1_1game}{game} $\ast$ {\bfseries clone} () const
+\item 
+bool \hyperlink{classmain__savitch__14_1_1checkers_ab8481b1a443f4b190d3ff508ab6f62a7}{is\+\_\+game\+\_\+over} () const
+\item 
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_ad3ee0adbdabda9136ecd46b958c83d24}\label{classmain__savitch__14_1_1checkers_ad3ee0adbdabda9136ecd46b958c83d24}} 
+void {\bfseries restart} ()
+\item 
+game\+::who \hyperlink{classmain__savitch__14_1_1checkers_aad9a08662e9fdf62752c60997b29370e}{winning} () const
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_aa4b4867ee171d04f5473f4ca38a9729a}\label{classmain__savitch__14_1_1checkers_aa4b4867ee171d04f5473f4ca38a9729a}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!compute\+\_\+moves@{compute\+\_\+moves}}
+\index{compute\+\_\+moves@{compute\+\_\+moves}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{compute\+\_\+moves()}{compute\_moves()}}
+{\footnotesize\ttfamily void main\+\_\+savitch\+\_\+14\+::checkers\+::compute\+\_\+moves (\begin{DoxyParamCaption}\item[{queue$<$ string $>$ \&}]{moves }\end{DoxyParamCaption}) const}
+
+Computes moves for the computer 
+\begin{DoxyParams}{Parameters}
+{\em queue$<$string$>$\&} & moves \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_a1705b4e1bfe04205ebb7703925b50f9f}\label{classmain__savitch__14_1_1checkers_a1705b4e1bfe04205ebb7703925b50f9f}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily int main\+\_\+savitch\+\_\+14\+::checkers\+::evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+returns who is currently winning based on the number of chips \begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmain__savitch__14_1_1game}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_ab8481b1a443f4b190d3ff508ab6f62a7}\label{classmain__savitch__14_1_1checkers_ab8481b1a443f4b190d3ff508ab6f62a7}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!is\+\_\+game\+\_\+over@{is\+\_\+game\+\_\+over}}
+\index{is\+\_\+game\+\_\+over@{is\+\_\+game\+\_\+over}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{is\+\_\+game\+\_\+over()}{is\_game\_over()}}
+{\footnotesize\ttfamily bool main\+\_\+savitch\+\_\+14\+::checkers\+::is\+\_\+game\+\_\+over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determines if the game is over \begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmain__savitch__14_1_1game}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_afc7d56fe1f0637a02cad352e9cda9ee3}\label{classmain__savitch__14_1_1checkers_afc7d56fe1f0637a02cad352e9cda9ee3}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!is\+\_\+legal@{is\+\_\+legal}}
+\index{is\+\_\+legal@{is\+\_\+legal}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{is\+\_\+legal()}{is\_legal()}}
+{\footnotesize\ttfamily bool main\+\_\+savitch\+\_\+14\+::checkers\+::is\+\_\+legal (\begin{DoxyParamCaption}\item[{const string \&}]{move }\end{DoxyParamCaption}) const}
+
+This function determines if a move is legal or illegal 
+\begin{DoxyParams}{Parameters}
+{\em const} & string\& move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_a8a08c0555d5b8c264472cc94a2f007e3}\label{classmain__savitch__14_1_1checkers_a8a08c0555d5b8c264472cc94a2f007e3}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!make\+\_\+move@{make\+\_\+move}}
+\index{make\+\_\+move@{make\+\_\+move}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{make\+\_\+move()}{make\_move()}}
+{\footnotesize\ttfamily void main\+\_\+savitch\+\_\+14\+::checkers\+::make\+\_\+move (\begin{DoxyParamCaption}\item[{const string \&}]{move }\end{DoxyParamCaption})}
+
+Allows for a move to be made 
+\begin{DoxyParams}{Parameters}
+{\em const} & string\& move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_aad9a08662e9fdf62752c60997b29370e}\label{classmain__savitch__14_1_1checkers_aad9a08662e9fdf62752c60997b29370e}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!winning@{winning}}
+\index{winning@{winning}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{winning()}{winning()}}
+{\footnotesize\ttfamily game\+::who main\+\_\+savitch\+\_\+14\+::checkers\+::winning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+returns who is currently winning \begin{DoxyReturn}{Returns}
+game 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classmain__savitch__14_1_1game_a2f0d5338c12bd98d52fe2383ece5c45e}{main\+\_\+savitch\+\_\+14\+::game}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+checkers.\+h\item 
+checkers.\+cc\end{DoxyCompactItemize}
