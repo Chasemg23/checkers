@@ -52,6 +52,18 @@ namespace main_savitch_14 {
 				}
 			}
 		}
+
+		/*	For double jump testing
+		 *	board[2][5].setempty(false);
+		 *	board[2][5].setred(true);
+		 *	board[2][5].setking(false);
+		 *	board[3][4].setempty(false);
+		 *	board[3][4].setred(false);
+		 *	board[3][4].setking(false);
+		 *	board[5][2].setempty(false);
+		 *	board[5][2].setred(false);
+		 *	board[5][2].setking(false);
+		 */
 	}
 
 
@@ -248,7 +260,7 @@ namespace main_savitch_14 {
 					else if(row2 == row1 - 2) {
 						if(col2 == col1 - 2) {
 							if(!board[col1-2][row1-2].isempty()) {
-								if(!board[col1-2][row1-2].isred())
+								if(!board[col1-2][row1-2].isred()) 
 									return true;
 								else
 									return false;
@@ -268,6 +280,54 @@ namespace main_savitch_14 {
 						}
 						else
 							return false;
+					}
+					 //else
+						//return false;
+					//DOUBLE JUMPING MOVES
+					else if(row2 == row1 - 4) {
+						if(col2 == col1 - 4) {
+							if(!board[col1-4][row1-4].isempty()) {
+								if(!board[col1-4][row1-4].isred()) {
+									if(!board[col1-2][row1-2].isempty()) {
+										if(!board[col1-2][row1-2].isred()) 
+											return true;
+										else
+											return false;
+									}
+									 else
+										return false;
+								}
+								 else
+									return false;
+							}
+							 else
+								return false;
+						}
+						else if(col2 == col1 + 4) {
+							if(!board[col1+2][row1-4].isempty()) {
+								if(!board[col1+2][row1-4].isred()) {
+									if(!board[col1][row1-2].isempty()) {
+										if(!board[col1][row1-2].isred())
+											return true;
+										else
+											return false;
+									}
+									 else
+										return false;
+								}
+								 else
+									return false;
+							}
+							 else
+								return false;
+						}
+						 else
+							return false;
+						/*else if(col2 == col1) {
+							if(!board[col1-1][row1-		For double jumping one way and then the other
+						}					I will implement this later, currently going to sleep
+						else					timestamp: 2:57 AM
+							return false;*/
 					}
 					else
 						return false;
@@ -447,6 +507,22 @@ namespace main_savitch_14 {
 					blackcount--;
 
 				board[col1-2][row1].setempty(true);
+			}
+		}else if(row2 == row1 - 4) {
+			if(col2 == col1 - 4) {
+				if(board[col1][row1].isred())
+					redcount -= 2;
+				else
+					blackcount -= 2;
+				board[col1-2][row1-2].setempty(true);
+				board[col1-4][row1-4].setempty(true);
+			}else if(col2 == col1 + 4) {
+				if(board[col1][row1].isred())
+					redcount -= 2;
+				else
+					blackcount -= 2;
+				board[col1][row1-2].setempty(true);
+				board[col1+2][row1-4].setempty(true);
 			}
 		}
 
