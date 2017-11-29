@@ -24,6 +24,10 @@
 //
 //***********************************************************
 
+///@brief Colors class that makes constant variables for colors that can be used
+///@details To make text different colors use one of the variables like this: cout << BLUE << "Example" << endl;
+///@author Matthew Beldyk
+
 #ifndef COLORS_H
 #define COLORS_H
 
@@ -31,7 +35,7 @@
 using namespace std;
 
 const string BLINK     = "\e[5m";          //don't use this your
-					   //professor will probibly
+					   //professor will probably
 					   //beat you to death if
 					   //you do feel the need to
 					   //use blink!!!
