@@ -15,3 +15,7 @@ Generated the doxygen config_file
 Generated the doxygen documentation
 
 is_legal() function has been updated to take single-direction double-jumps for the player
+
+Added more documentation to game.cc game.h colors.h and main.cc
+
+Added instructions so the human player knows how to make a move
