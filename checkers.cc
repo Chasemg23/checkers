@@ -102,7 +102,7 @@ namespace main_savitch_14 {
         	}
 */
 	void checkers::display_status() const {
-        int i, k, j;
+        	int i, k, j;
 		char letter;
 		letter = 'A';
 		cout << "  ";

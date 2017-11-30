@@ -1,11 +1,3 @@
-/// File: game.cxx
-
-/**
- *	Code written by main_savitch_14
- *      CS3560 Term Project
- */
-
-
 #include <cassert>    // Provides assert
 #include <climits>    // Provides INT_MAX and INT_MIN
 #include <iostream>   // Provides cin, cout
@@ -16,23 +8,20 @@ using namespace std;
 
 namespace main_savitch_14
 {
-    // *************************************************************************
-    // STATIC MEMBER CONSTANTS
-    // const int game::SEARCH_LEVELS;
-    
-    // *************************************************************************
-    // PUBLIC MEMBER FUNCTIONS
 
-void game::clear() const
-{
+    void game::clear() const{
+
+	///@details Clears the screen and then repositions the cursor to the top left of the window
+
 	std::cout << "\x1B[2J\x1B[H";
-}
+    }
 
-game::who game::play( )
-    /// The play function should not be overridden. It plays one round of the
-    /// game, with the human player moving first and the computer second.
-    /// The return value is the winner of the game (or NEUTRAL for a tie).
-    {
+    game::who game::play( ){
+
+	///@brief Game loop
+	///@details Sets the move number to zero, loops clearing the screen, displaying the board, and getting input for moves until the game is over
+	///@return Human or Computer
+
 	restart( );
 	while (!is_game_over( ))
 	{
@@ -47,23 +36,26 @@ game::who game::play( )
 	return HUMAN;
     }
 
-    
-    // *************************************************************************
-    // OPTIONAL VIRTUAL FUNCTIONS (overriding these functions is optional)
+    void game::display_message(const string& message) const{
 
-    void game::display_message(const string& message) const
-    {
+	///@param Constant string message passed by reference
+	///@brief Displays the string message to the console
+
 	cout << message;
     }
 
     string game::get_user_move( )
-
-    ///@brief prompts the user to make a move
-    ///@return string
- 
     {
+
+	///@brief Gets user's move
+	///@details Creates a string to store the input, asks the user to make a move, stores the input, converts all letters to lowercase
+	///@return User's move stored in string variable answer
+
 	string answer;
 	
+	display_message("\nMoves are entered this way: a6b5\n");
+	display_message("The first two characters are the position of the piece you want to move" 
+			" and the last two characters are the position you want to move to.\n");
 	display_message("Your move, please: ");
 	getline(cin, answer);
 	for(int i = 0; i < answer.length(); i++){
@@ -74,8 +66,11 @@ game::who game::play( )
 
     game::who game::winning( ) const
     {
-	///@brief Evaluate based on move that was just made.
-	///@return game
+
+	///@brief Decides who is currently winning
+	///@details Evaluates the board to see which player has more pieces on the board
+	///@return Human, Computer, or Neutral if the game is currently tied
+
 	int value = evaluate( );
 
 	if (value > 0)
@@ -86,25 +81,21 @@ game::who game::play( )
 	    return NEUTRAL;
     }
 
-
-
-    // *************************************************************************
-    // PRIVATE FUNCTIONS (these are the same for every game)
-
     int game::eval_with_lookahead(int look_ahead, int beat_this)
-    // Evaluate a board position with lookahead.
-    // --int look_aheads:  How deep the lookahead should go to evaluate the move.
-    // --int beat_this: Value of another move that we?re considering. If the
-    // current board position can't beat this, then cut it short.
-    // The return value is large if the position is good for the player who just
-    // moved. 
     {
-    	queue<string> moves;   /// All possible opponent moves
-	int value;             /// Value of a board position after opponent moves
-    	int best_value;        /// Evaluation of best opponent move
-    	game* future;          /// Pointer to a future version of this game
+
+	///@param Integer look_ahead for levels of evaluation
+	///@param Integer beat_this to store another move we're considering
+	///@brief Looks ahead and decides the best move to make
+	///@details look_ahead is how deep the lookahead should go to evaluate the move and beat_this is another move but if the current board position
+	/// can't beat this then cut it short
+	///@return The best move stored in best_value
+
+    	queue<string> moves;   ///< All possible opponent moves
+	int value;             ///< Value of a board position after opponent moves
+    	int best_value;        ///< Evaluation of best opponent move
+    	game* future;          ///< Pointer to a future version of this game
 	
-        // Base case:
 	if (look_ahead == 0 || is_game_over( ))
 	{
 	    if (last_mover( ) == COMPUTER)
@@ -113,11 +104,7 @@ game::who game::play( )
 		return -evaluate( );
 	}
 
-        // Recursive case:
-        // The level is above 0, so try all possible opponent moves. Keep the
-	// value of the best of these moves from the opponent's perspective.
     	compute_moves(moves);
-	// assert(!moves.empty( ));
     	best_value = INT_MIN;
     	while (!moves.empty( ))
     	{
@@ -128,20 +115,20 @@ game::who game::play( )
 	    if (value > best_value)
 	    {
 		if (-value <= beat_this)
-		    return INT_MIN + 1; // Alpha-beta pruning
+		    return INT_MIN + 1;
 		best_value = value;
 	    }
 	    moves.pop( );
     	}
 
-    	// The value was calculated from the opponent's perspective.
-    	// The answer we return should be from player's perspective, so multiply times -1:
     	return -best_value;
     }
 
     void game::make_computer_move( )
     {
-	///@brief allows the computer to make a move
+
+	///@brief Lets the computer move
+	///@details Computes all legal moves, evaluates the move, decides which is best, and then makes the move
 
 	queue<string> moves;
 	int value;
@@ -149,12 +136,9 @@ game::who game::play( )
 	string best_move;
 	game* future;
 	
-	// Compute all legal moves that the computer could make.
 	compute_moves(moves);
 	assert(!moves.empty( ));
 	
-	// Evaluate each possible legal move, saving the index of the best
-	// in best_index and saving its value in best_value.
 	best_value = INT_MIN;
 	while (!moves.empty( ))
 	{
@@ -169,13 +153,17 @@ game::who game::play( )
 	    }
 	    moves.pop( );
 	}
-	    
-	// Make the best move.
+
 	make_move(best_move);
     }
 
     void game::make_human_move( )
     {
+
+	///@brief Lets the human move
+	///@details Creates a string to store the input, gets the user move, if the move is illegal it asks the user for a different move until
+	/// the input is legal and then makes the move
+
         string move;
 	move = get_user_move( );
 	while (!is_legal(move))
@@ -188,4 +176,5 @@ game::who game::play( )
 }
 
 	
-
+///@brief Code for the functions that structure the game
+///@author Savitch
