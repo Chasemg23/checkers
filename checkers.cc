@@ -52,18 +52,7 @@ namespace main_savitch_14 {
 				}
 			}
 		}
-
-		/*	For double jump testing
-		 *	board[2][5].setempty(false);
-		 *	board[2][5].setred(true);
-		 *	board[2][5].setking(false);
-		 *	board[3][4].setempty(false);
-		 *	board[3][4].setred(false);
-		 *	board[3][4].setking(false);
-		 *	board[5][2].setempty(false);
-		 *	board[5][2].setred(false);
-		 *	board[5][2].setking(false);
-		 */
+		 
 	}
 
 
@@ -285,6 +274,7 @@ namespace main_savitch_14 {
 						//return false;
 					//DOUBLE JUMPING MOVES
 					else if(row2 == row1 - 4) {
+						//DOUBLE TO THE LEFT
 						if(col2 == col1 - 4) {
 							if(!board[col1-4][row1-4].isempty()) {
 								if(!board[col1-4][row1-4].isred()) {
@@ -303,6 +293,7 @@ namespace main_savitch_14 {
 							 else
 								return false;
 						}
+						//DOUBLE TO THE RIGHT
 						else if(col2 == col1 + 4) {
 							if(!board[col1+2][row1-4].isempty()) {
 								if(!board[col1+2][row1-4].isred()) {
@@ -321,13 +312,37 @@ namespace main_savitch_14 {
 							 else
 								return false;
 						}
-						 else
+						else if(col2 == col1) {
+							//LEFT THEN RIGHT
+							if(!board[col1-2][row1-2].isempty() && !board[col1-2][row1-4].isempty()) {
+								if(!board[col1-2][row1-2].isred()) {
+									if(!board[col1-2][row1-4].isred())
+										return true;
+									else
+										return false;
+								}
+								else 
+									return false;
+							}
+							else
+								return false;
+							//RIGHT THEN LEFT
+							if(!board[col1][row1-2].isempty() && !board[col1][row1-4].isempty()) {
+								if(!board[col1][row1-2].isred()) {
+									if(!board[col1][row1-4].isred())
+										return true;
+									else
+										return false;
+								}
+								else 
+									return false;
+							}
+							else
+								return false;
+						}					
+						else					
 							return false;
-						/*else if(col2 == col1) {
-							if(!board[col1-1][row1-		For double jumping one way and then the other
-						}					I will implement this later, currently going to sleep
-						else					timestamp: 2:57 AM
-							return false;*/
+						
 					}
 					else
 						return false;
@@ -369,6 +384,78 @@ namespace main_savitch_14 {
 						}
 						else
 							return false;
+					}
+					//DOUBLE JUMPING MOVES
+					else if(row2 == row1 + 4) {
+						//DOUBLE TO THE LEFT
+						if(col2 == col1 + 4) {
+							if(!board[col1+3][row1+3].isempty()) {
+								if(!board[col1+3][row1+3].isred()) {
+									if(!board[col1][row1].isempty()) {
+										if(!board[col1][row1].isred()) 
+											return true;
+										else
+											return false;
+									}
+									 else
+										return false;
+								}
+								 else
+									return false;
+							}
+							 else
+								return false;
+						}
+						//DOUBLE TO THE RIGHT
+						else if(col2 == col1 - 4) {
+							if(!board[col1-4][row1-4].isempty()) {
+								if(!board[col1-4][row1-4].isred()) {
+									if(!board[col1-2][row1].isempty()) {
+										if(!board[col1-2][row1].isred())
+											return true;
+										else
+											return false;
+									}
+									 else
+										return false;
+								}
+								 else
+									return false;
+							}
+							 else
+								return false;
+						}
+						else if(col2 == col1) {
+							//LEFT THEN RIGHT
+							if(!board[col1+3][row1+3].isempty() && !!board[col1][row1].isempty()) {
+								if(!board[col1-2][row1-2].isred()) {
+									if(!board[col1-2][row1-4].isred())
+										return true;
+									else
+										return false;
+								}
+								else 
+									return false;
+							}
+							else
+								return false;
+							//RIGHT THEN LEFT
+							if(!board[col1-4][row1-4].isempty() && !board[col1-2][row1].isempty()) {
+								if(!board[col1][row1-2].isred()) {
+									if(!board[col1][row1-4].isred())
+										return true;
+									else
+										return false;
+								}
+								else 
+									return false;
+							}
+							else
+								return false;
+						}					
+						else					
+							return false;
+						
 					}
 					else
 						return false;
@@ -451,6 +538,7 @@ namespace main_savitch_14 {
 		int col1, row1, col2, row2;
 		char c;
 		space tmp;
+		bool doubleleft = false;
 
 		c = move[0];
 		col1 = c - '0';
@@ -523,6 +611,22 @@ namespace main_savitch_14 {
 					blackcount -= 2;
 				board[col1][row1-2].setempty(true);
 				board[col1+2][row1-4].setempty(true);
+			}else if(col2 == col1 && (!board[col1-2][row1-2].isred() && !board[col1-2][row1-4].isred() || board[col1-2][row1-2].isred() && board[col1-2][row1-4].isred())) {
+				if(board[col1][row1].isred())
+					redcount -= 2;
+				else
+					blackcount -= 2;
+				board[col1-2][row1-2].setempty(true);
+				board[col1-2][row1-4].setempty(true);
+			}
+			else if(col2 == col1 && (!board[col1][row1-2].isred() && !board[col1][row1-4].isred() || board[col1][row1-2].isred() && board[col1][row1-4].isred())) {
+				if(board[col1][row1].isred())
+					redcount -= 2;
+				else
+					blackcount -= 2;
+				board[col1][row1-2].setempty(true);
+				board[col1][row1-4].setempty(true);
+				redcount -= 2;
 			}
 		}
 
