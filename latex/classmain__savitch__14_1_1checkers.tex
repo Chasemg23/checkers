@@ -1,0 +1,162 @@
+\hypertarget{classmain__savitch__14_1_1checkers}{}\section{main\+\_\+savitch\+\_\+14\+:\+:checkers Class Reference}
+\label{classmain__savitch__14_1_1checkers}\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+Inheritance diagram for main\+\_\+savitch\+\_\+14\+:\+:checkers\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmain__savitch__14_1_1checkers}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmain__savitch__14_1_1checkers_ad57de7d84332c511eff8fb0f9dc3e47d}{checkers} ()
+\item 
+bool \hyperlink{classmain__savitch__14_1_1checkers_afc7d56fe1f0637a02cad352e9cda9ee3}{is\+\_\+legal} (const string \&move) const
+\item 
+int \hyperlink{classmain__savitch__14_1_1checkers_a1705b4e1bfe04205ebb7703925b50f9f}{evaluate} () const
+\item 
+void \hyperlink{classmain__savitch__14_1_1checkers_a8a08c0555d5b8c264472cc94a2f007e3}{make\+\_\+move} (const string \&move)
+\item 
+void \hyperlink{classmain__savitch__14_1_1checkers_aa4b4867ee171d04f5473f4ca38a9729a}{compute\+\_\+moves} (queue$<$ string $>$ \&moves) const
+\item 
+void \hyperlink{classmain__savitch__14_1_1checkers_aa99f69ed300d81b6340f87b59ebba031}{display\+\_\+status} () const
+\item 
+\hyperlink{classmain__savitch__14_1_1game}{game} $\ast$ \hyperlink{classmain__savitch__14_1_1checkers_a716b963325b1455e63c25afe89d617d9}{clone} () const
+\item 
+bool \hyperlink{classmain__savitch__14_1_1checkers_ab8481b1a443f4b190d3ff508ab6f62a7}{is\+\_\+game\+\_\+over} () const
+\item 
+void \hyperlink{classmain__savitch__14_1_1checkers_ad3ee0adbdabda9136ecd46b958c83d24}{restart} ()
+\item 
+game\+::who \hyperlink{classmain__savitch__14_1_1checkers_aad9a08662e9fdf62752c60997b29370e}{winning} () const
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_ad57de7d84332c511eff8fb0f9dc3e47d}\label{classmain__savitch__14_1_1checkers_ad57de7d84332c511eff8fb0f9dc3e47d}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!checkers@{checkers}}
+\index{checkers@{checkers}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{checkers()}{checkers()}}
+{\footnotesize\ttfamily main\+\_\+savitch\+\_\+14\+::checkers\+::checkers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor -\/ sets the board up to start the game. Makes the pieces red, black, or empty where they should be. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_a716b963325b1455e63c25afe89d617d9}\label{classmain__savitch__14_1_1checkers_a716b963325b1455e63c25afe89d617d9}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!clone@{clone}}
+\index{clone@{clone}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \hyperlink{classmain__savitch__14_1_1game}{game} $\ast$ main\+\_\+savitch\+\_\+14\+::checkers\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+creates a clone of the game \begin{DoxyReturn}{Returns}
+A new checkers object pointing to the current game 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmain__savitch__14_1_1game}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_aa4b4867ee171d04f5473f4ca38a9729a}\label{classmain__savitch__14_1_1checkers_aa4b4867ee171d04f5473f4ca38a9729a}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!compute\+\_\+moves@{compute\+\_\+moves}}
+\index{compute\+\_\+moves@{compute\+\_\+moves}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{compute\+\_\+moves()}{compute\_moves()}}
+{\footnotesize\ttfamily void main\+\_\+savitch\+\_\+14\+::checkers\+::compute\+\_\+moves (\begin{DoxyParamCaption}\item[{queue$<$ string $>$ \&}]{moves }\end{DoxyParamCaption}) const}
+
+Computes moves for the computer 
+\begin{DoxyParams}{Parameters}
+{\em queue} & of strings passed by reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_aa99f69ed300d81b6340f87b59ebba031}\label{classmain__savitch__14_1_1checkers_aa99f69ed300d81b6340f87b59ebba031}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!display\+\_\+status@{display\+\_\+status}}
+\index{display\+\_\+status@{display\+\_\+status}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{display\+\_\+status()}{display\_status()}}
+{\footnotesize\ttfamily void main\+\_\+savitch\+\_\+14\+::checkers\+::display\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Displays the updated board 
+
+Implements \hyperlink{classmain__savitch__14_1_1game}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_a1705b4e1bfe04205ebb7703925b50f9f}\label{classmain__savitch__14_1_1checkers_a1705b4e1bfe04205ebb7703925b50f9f}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily int main\+\_\+savitch\+\_\+14\+::checkers\+::evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Decides who has more piecs on the board \begin{DoxyReturn}{Returns}
+int -\/ number of black pieces minus the number of red pieces 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmain__savitch__14_1_1game}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_ab8481b1a443f4b190d3ff508ab6f62a7}\label{classmain__savitch__14_1_1checkers_ab8481b1a443f4b190d3ff508ab6f62a7}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!is\+\_\+game\+\_\+over@{is\+\_\+game\+\_\+over}}
+\index{is\+\_\+game\+\_\+over@{is\+\_\+game\+\_\+over}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{is\+\_\+game\+\_\+over()}{is\_game\_over()}}
+{\footnotesize\ttfamily bool main\+\_\+savitch\+\_\+14\+::checkers\+::is\+\_\+game\+\_\+over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determines if the game is over
+
+If there are no red pieces left, the game is over. If there are no black pieces left, the game is over. \begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmain__savitch__14_1_1game}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_afc7d56fe1f0637a02cad352e9cda9ee3}\label{classmain__savitch__14_1_1checkers_afc7d56fe1f0637a02cad352e9cda9ee3}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!is\+\_\+legal@{is\+\_\+legal}}
+\index{is\+\_\+legal@{is\+\_\+legal}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{is\+\_\+legal()}{is\_legal()}}
+{\footnotesize\ttfamily bool main\+\_\+savitch\+\_\+14\+::checkers\+::is\+\_\+legal (\begin{DoxyParamCaption}\item[{const string \&}]{move }\end{DoxyParamCaption}) const}
+
+This function determines if a move is legal or illegal 
+\begin{DoxyParams}{Parameters}
+{\em const} & string\& move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_a8a08c0555d5b8c264472cc94a2f007e3}\label{classmain__savitch__14_1_1checkers_a8a08c0555d5b8c264472cc94a2f007e3}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!make\+\_\+move@{make\+\_\+move}}
+\index{make\+\_\+move@{make\+\_\+move}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{make\+\_\+move()}{make\_move()}}
+{\footnotesize\ttfamily void main\+\_\+savitch\+\_\+14\+::checkers\+::make\+\_\+move (\begin{DoxyParamCaption}\item[{const string \&}]{move }\end{DoxyParamCaption})}
+
+Allows for a move to be made 
+\begin{DoxyParams}{Parameters}
+{\em const} & string move passed by reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_ad3ee0adbdabda9136ecd46b958c83d24}\label{classmain__savitch__14_1_1checkers_ad3ee0adbdabda9136ecd46b958c83d24}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!restart@{restart}}
+\index{restart@{restart}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily void main\+\_\+savitch\+\_\+14\+::checkers\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Resets the move number back to zero Resets the game board by calling the constructor 
+
+Reimplemented from \hyperlink{classmain__savitch__14_1_1game_ad521a7d78e7c163a0bc28b709f0d45fd}{main\+\_\+savitch\+\_\+14\+::game}.
+
+\mbox{\Hypertarget{classmain__savitch__14_1_1checkers_aad9a08662e9fdf62752c60997b29370e}\label{classmain__savitch__14_1_1checkers_aad9a08662e9fdf62752c60997b29370e}} 
+\index{main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}!winning@{winning}}
+\index{winning@{winning}!main\+\_\+savitch\+\_\+14\+::checkers@{main\+\_\+savitch\+\_\+14\+::checkers}}
+\subsubsection{\texorpdfstring{winning()}{winning()}}
+{\footnotesize\ttfamily game\+::who main\+\_\+savitch\+\_\+14\+::checkers\+::winning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Decides who is currently winning
+
+If red has more pieces on the board, return H\+U\+M\+AN. If black has more pieces on the board, return C\+O\+M\+P\+U\+T\+ER. If red and black have the same amount of pieces on the board return N\+E\+U\+T\+R\+AL. \begin{DoxyReturn}{Returns}
+H\+U\+M\+AN, C\+O\+M\+P\+U\+T\+ER, or N\+E\+U\+T\+R\+AL 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classmain__savitch__14_1_1game_a2f0d5338c12bd98d52fe2383ece5c45e}{main\+\_\+savitch\+\_\+14\+::game}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+checkers.\+h\item 
+checkers.\+cc\end{DoxyCompactItemize}
