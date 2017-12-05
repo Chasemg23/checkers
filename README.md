@@ -8,7 +8,7 @@ Nic Gill			ng344516@ohio.edu
 
 Mackenzie Schnaekel		ms840314@ohio.edu
 
-Dashaun Slaughter		ds946041@ohio.edu
+Dashaun Slaughter		ds946014@ohio.edu
 
 Chase Gindlesperger		cg197415@ohio.edu
 

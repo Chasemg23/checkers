@@ -56,7 +56,7 @@ namespace main_savitch_14
 	display_message("\nMoves are entered this way: a6b5\n");
 	display_message("The first two characters are the position of the piece you want to move" 
 			" and the last two characters are the position you want to move to.\n");
-	display_message("Your move, please: ");
+	display_message("Please move your red piece: ");
 	getline(cin, answer);
 	for(int i = 0; i < answer.length(); i++){
 		answer[i] = tolower(answer[i]);

@@ -19,3 +19,7 @@ is_legal() function has been updated to take single-direction double-jumps for t
 Added more documentation to game.cc game.h colors.h and main.cc
 
 Added instructions so the human player knows how to make a move
+
+Performed static analysis using cppcheck
+
+Performed dynaimc analysis using valgrind
