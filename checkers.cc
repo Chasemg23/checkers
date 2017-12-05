@@ -272,7 +272,7 @@ namespace main_savitch_14 {
 					}
 					 //else
 						//return false;
-					//DOUBLE JUMPING MOVES
+		/*			//DOUBLE JUMPING MOVES
 					else if(row2 == row1 - 4) {
 						//DOUBLE TO THE LEFT
 						if(col2 == col1 - 4) {
@@ -336,14 +336,14 @@ namespace main_savitch_14 {
 								}
 								else 
 									return false;
-							}
+							}	
 							else
 								return false;
 						}					
 						else					
 							return false;
 						
-					}
+					}	*/
 					else
 						return false;
 				}
@@ -385,7 +385,7 @@ namespace main_savitch_14 {
 						else
 							return false;
 					}
-					//DOUBLE JUMPING MOVES
+				/*	//DOUBLE JUMPING MOVES
 					else if(row2 == row1 + 4) {
 						//DOUBLE TO THE LEFT
 						if(col2 == col1 + 4) {
@@ -456,7 +456,7 @@ namespace main_savitch_14 {
 						else					
 							return false;
 						
-					}
+					}	*/
 					else
 						return false;
 				}
