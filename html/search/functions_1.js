@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['display_5fmessage',['display_message',['../classmain__savitch__14_1_1game.html#ac58bfc07db8e604b07d2039b2cf7ab51',1,'main_savitch_14::game']]],
-  ['display_5fstatus',['display_status',['../classmain__savitch__14_1_1checkers.html#aa99f69ed300d81b6340f87b59ebba031',1,'main_savitch_14::checkers']]]
+  ['display_5fmessage',['display_message',['../classmain__savitch__14_1_1game.html#ab8b87c3a1b68634861a8c0ed2b9f1992',1,'main_savitch_14::game']]],
+  ['display_5fstatus',['display_status',['../classmain__savitch__14_1_1checkers.html#ae2e00d0f12e7fb00f117588db21f0036',1,'main_savitch_14::checkers']]]
 ];

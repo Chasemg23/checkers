@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['winning',['winning',['../classmain__savitch__14_1_1checkers.html#aad9a08662e9fdf62752c60997b29370e',1,'main_savitch_14::checkers::winning()'],['../classmain__savitch__14_1_1game.html#a2f0d5338c12bd98d52fe2383ece5c45e',1,'main_savitch_14::game::winning()']]]
+  ['winning',['winning',['../classmain__savitch__14_1_1checkers.html#aeea4865e4722e81800e7207f7c954e8f',1,'main_savitch_14::checkers::winning()'],['../classmain__savitch__14_1_1game.html#a081611c42aa66b4d91bbefeec47c7c4e',1,'main_savitch_14::game::winning()']]]
 ];
