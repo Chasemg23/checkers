@@ -621,7 +621,8 @@ namespace main_savitch_14 {
 					blackcount -= 2;
 				board[col1][row1-2].setempty(true);
 				board[col1+2][row1-4].setempty(true);
-			}else if(col2 == col1 && (!board[col1-2][row1-2].isred() && !board[col1-2][row1-4].isred() || board[col1-2][row1-2].isred() && board[col1-2][row1-4].isred())) {
+			}else if((col2 == col1 && !board[col1-2][row1-2].isred() && !board[col1-2][row1-4].isred()) || (board[col1-2][row1-2].isred() && 
+				 board[col1-2][row1-4].isred())) {
 				if(board[col1][row1].isred())
 					redcount -= 2;
 				else
@@ -629,7 +630,8 @@ namespace main_savitch_14 {
 				board[col1-2][row1-2].setempty(true);
 				board[col1-2][row1-4].setempty(true);
 			}
-			else if(col2 == col1 && (!board[col1][row1-2].isred() && !board[col1][row1-4].isred() || board[col1][row1-2].isred() && board[col1][row1-4].isred())) {
+			else if((col2 == col1 && !board[col1][row1-2].isred() && !board[col1][row1-4].isred()) || (board[col1][row1-2].isred() && 
+				board[col1][row1-4].isred())) {
 				if(board[col1][row1].isred())
 					redcount -= 2;
 				else
