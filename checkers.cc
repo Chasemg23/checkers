@@ -1,3 +1,6 @@
+///@brief Code for all the functions defined in checkers.h
+///@author Chase Gindlesperger
+
 /**
  *	Chase Gindlesperger
  *	Checkers.cc
@@ -15,6 +18,9 @@ using namespace std;
 namespace main_savitch_14 {
 
 	checkers::checkers(){
+
+	///@brief Constructor - sets the board up to start the game. Makes the pieces red, black, or empty where they should be.
+
 		int i, j;
 		blackcount = 12;
 		redcount = 12;
@@ -57,6 +63,8 @@ namespace main_savitch_14 {
 
 
 	void checkers::restart() {
+	///@brief Resets the game board by calling the constructor	
+	
 		checkers();
 	}
 
@@ -102,6 +110,8 @@ namespace main_savitch_14 {
         	}
 */
 	void checkers::display_status() const {
+	///@brief Displays the updated board
+
         	int i, k, j;
 		char letter;
 		letter = 'A';
@@ -532,8 +542,7 @@ namespace main_savitch_14 {
 	void checkers::make_move(const string& move){
 
 	///@brief Allows for a move to be made
-	///@param const string& move
-	///@return void
+	///@param const string move passed by reference
 
 		int col1, row1, col2, row2;
 		char c;
@@ -652,6 +661,7 @@ namespace main_savitch_14 {
 
 	bool checkers::is_game_over() const{
 	///@brief Determines if the game is over
+	///@details If there are no red pieces left, the game is over. If there are no black pieces left, the game is over. 
 	///@return bool
 
 		if(redcount == 0) {
@@ -668,8 +678,7 @@ namespace main_savitch_14 {
 
 	void checkers::compute_moves(queue<string>& moves)const{
 	///@brief Computes moves for the computer
-	///@param queue<string>& moves
-	///@return void
+	///@param queue of strings passed by reference
 
 		string m = "    ";
 		char i,j,k,l;
@@ -690,8 +699,10 @@ namespace main_savitch_14 {
 	}
 
 	game::who checkers::winning() const {
-	///@brief returns who is currently winning
-	///@return game
+	///@brief Decides who is currently winning
+	///@details If red has more pieces on the board, return HUMAN. If black has more pieces on the board, return COMPUTER. If red and black have the same
+	/// amount of pieces on the board return NEUTRAL.
+	///@return HUMAN, COMPUTER, or NEUTRAL
  
 		if(redcount > blackcount)
 			return HUMAN;
@@ -702,12 +713,16 @@ namespace main_savitch_14 {
 	}
 
 	int checkers::evaluate()const{
-	///@brief returns who is currently winning based on the number of chips
-	///@return int
+	///@brief Decides who has more piecs on the board
+	///@return int - number of black pieces minus the number of red pieces
+
 		return blackcount - redcount;
 	}
 
 	game* checkers::clone() const {
+	///@brief creates a clone of the game
+	///@return A new checkers object pointing to the current game
+
 		return new checkers(*this);
 	}
 }

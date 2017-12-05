@@ -1,3 +1,6 @@
+///@brief checkers class derived from the game class that defines all functions that needed overridden from the game class and defines the board
+///@author Chase Gindlesperger
+
 /**
  *	Chase Gindlesperger
  *	Checkers.h
