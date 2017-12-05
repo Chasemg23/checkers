@@ -1,6 +1,14 @@
+///@file main.cc
 ///@brief Main function
 ///@details Creates a game object pointer, makes the pointer point to a new checkers object, and then calls the game::play() function to start the game
 ///@author Chase Gindlesperger
+
+/**
+	* Chase Gindlesperger
+	* main.cc
+	*
+	* CS3560 Term Project
+*/
 
 #include <iostream>
 #include "colors.h"

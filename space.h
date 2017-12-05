@@ -3,6 +3,17 @@
 
 #include <iostream>
 
+///@file space.h
+///@brief Defines functions for space class
+///@author Chase Gindlesperger
+
+/**
+	* Chase Gindlesperger
+	* space.h
+	*
+	* CS3560 Term Project
+*/
+
 namespace main_savitch_14 {
 
 	class space {
@@ -16,7 +27,7 @@ namespace main_savitch_14 {
             		bool isempty() const {return empty;}
             		bool isred() const {return red;}
             		bool isking() const {return king;}
-        
+
         	private:
             		bool empty;
            	 	bool red;

@@ -1,3 +1,4 @@
+///@file checkers.cc
 ///@brief Code for all the functions defined in checkers.h
 ///@author Chase Gindlesperger
 
@@ -58,13 +59,13 @@ namespace main_savitch_14 {
 				}
 			}
 		}
-		 
+
 	}
 
 
 	void checkers::restart() {
-	///@brief Resets the game board by calling the constructor	
-	
+	///@brief Resets the game board by calling the constructor
+
 		checkers();
 	}
 
@@ -81,7 +82,7 @@ namespace main_savitch_14 {
 
         	for(i = 0; i < 8; i ++){
 			cout << RESET << i+1 << " ";
-	
+
                 	if(i % 2 == 0){ // Even Rows
                         	for(j = 0; j < 8; j++){
                                 	if(j % 2 == 0){  //Even columns in even rows are red
@@ -125,7 +126,7 @@ namespace main_savitch_14 {
        		for(i = 0; i < 8; i ++){
                		if(i % 2 == 0){ // Even Rows
 				cout << RESET << "   ";
-	
+
 				for(j=0; j < 8; j++) {
 					//cout << "  ";
 
@@ -146,11 +147,11 @@ namespace main_savitch_14 {
 						board[k][i].output();
 						cout << B_BLACK << "   ";
                         		}else { //Odd columns in even rows are white
-						cout << B_WHITE << "   "; 
+						cout << B_WHITE << "   ";
                                 		cout << B_WHITE;
 						board[k][i].output();
 						cout << B_WHITE << "   ";
-                        		}	
+                        		}
                 		}
 				cout << RESET << endl;
 
@@ -158,29 +159,29 @@ namespace main_savitch_14 {
 
 	                	for(j=0; j < 8; j++) {
 					//cout << "  ";
-	                       	
-					if(j % 2 == 0){ 
+
+					if(j % 2 == 0){
          		               		cout << B_BLACK << "         ";
                         		}else {
                          			cout << B_WHITE << "         ";
                         		}
-               			}	
+               			}
 
                 		cout << RESET << endl;
-			} 
+			}
 
 			else { // Odd Rows
 				cout << RESET << "   ";
 
                         	for(j=0; j < 8; j++) {
                                 	//cout << "  ";
-                                	
+
 					if(j % 2 == 0){
                                        		cout << B_WHITE << "         ";
                                		}else {
                                        		cout << B_BLACK << "         ";
                                		}
-                       		}	
+                       		}
 				cout << RESET << endl;
 
 				cout << RESET << " " << i+1 << " ";
@@ -202,10 +203,10 @@ namespace main_savitch_14 {
                         	cout << RESET << endl;
 
 				cout << RESET << "   ";
-	
+
         	                for(j=0; j < 8; j++) {
                 	                //cout << "  ";
-                                	
+
 					if(j % 2 == 0){
                         	                cout << B_WHITE << "         ";
                                 	}else {
@@ -215,7 +216,7 @@ namespace main_savitch_14 {
 	        		cout << RESET << endl;
 			}
         }
-	}	
+	}
 
 	bool checkers::is_legal(const string& move) const{
 
@@ -228,7 +229,7 @@ namespace main_savitch_14 {
 		c = move[0];
 		col1 = c - '0';
 		col1 -= 48;
-	
+
 		c = move[1];
 		row1 = c - '0';
 
@@ -259,7 +260,7 @@ namespace main_savitch_14 {
 					else if(row2 == row1 - 2) {
 						if(col2 == col1 - 2) {
 							if(!board[col1-2][row1-2].isempty()) {
-								if(!board[col1-2][row1-2].isred()) 
+								if(!board[col1-2][row1-2].isred())
 									return true;
 								else
 									return false;
@@ -289,7 +290,7 @@ namespace main_savitch_14 {
 							if(!board[col1-4][row1-4].isempty()) {
 								if(!board[col1-4][row1-4].isred()) {
 									if(!board[col1-2][row1-2].isempty()) {
-										if(!board[col1-2][row1-2].isred()) 
+										if(!board[col1-2][row1-2].isred())
 											return true;
 										else
 											return false;
@@ -331,7 +332,7 @@ namespace main_savitch_14 {
 									else
 										return false;
 								}
-								else 
+								else
 									return false;
 							}
 							else
@@ -344,15 +345,15 @@ namespace main_savitch_14 {
 									else
 										return false;
 								}
-								else 
+								else
 									return false;
-							}	
+							}
 							else
 								return false;
-						}					
-						else					
+						}
+						else
 							return false;
-						
+
 					}	*/
 					else
 						return false;
@@ -402,7 +403,7 @@ namespace main_savitch_14 {
 							if(!board[col1+3][row1+3].isempty()) {
 								if(!board[col1+3][row1+3].isred()) {
 									if(!board[col1][row1].isempty()) {
-										if(!board[col1][row1].isred()) 
+										if(!board[col1][row1].isred())
 											return true;
 										else
 											return false;
@@ -444,7 +445,7 @@ namespace main_savitch_14 {
 									else
 										return false;
 								}
-								else 
+								else
 									return false;
 							}
 							else
@@ -457,15 +458,15 @@ namespace main_savitch_14 {
 									else
 										return false;
 								}
-								else 
+								else
 									return false;
 							}
 							else
 								return false;
-						}					
-						else					
+						}
+						else
 							return false;
-						
+
 					}	*/
 					else
 						return false;
@@ -562,14 +563,14 @@ namespace main_savitch_14 {
 
 		c = move[3];
 		row2 = c - '0';
-	
+
  		tmp = board[col2-1][row2-1];
 		board[col2-1][row2-1] = board[col1-1][row1-1];
 		board[col1-1][row1-1] = tmp;
 
 		if(row2 == 1 || row2 == 8)
 			board[col2-1][row2-1].setking(true);
-		
+
 		if(row2 == row1 - 2){
 			if(col2 == col1 + 2){
 				if(board[col1][row1-2].isred())
@@ -578,7 +579,7 @@ namespace main_savitch_14 {
 					blackcount--;
 
 				board[col1][row1-2].setempty(true);
-				
+
 			}else if(col2 == col1 - 2) {
 				if(board[col1-2][row1-2].isred())
 					redcount--;
@@ -643,7 +644,7 @@ namespace main_savitch_14 {
 		if(row2 == row1 + 2 || row2 == row1 - 2) {
 			if(!board[col2-2][row2-2].isempty() && !board[col2-2][row2-2].isred())
 
-				if(board[col2-1][row2-1].isred()) 
+				if(board[col2-1][row2-1].isred())
 
 					if(board[col2-1][row2-1].isking()) {
 						if(board[col2-2][row2-2].isred() != board[col2-1][row2-1].isred())
@@ -653,7 +654,7 @@ namespace main_savitch_14 {
 								board[col2-1][row2-1] = tmp;
 							}
 					}
-			
+
 		}
 		game::make_move(move);
 	}
@@ -661,7 +662,7 @@ namespace main_savitch_14 {
 
 	bool checkers::is_game_over() const{
 	///@brief Determines if the game is over
-	///@details If there are no red pieces left, the game is over. If there are no black pieces left, the game is over. 
+	///@details If there are no red pieces left, the game is over. If there are no black pieces left, the game is over.
 	///@return bool
 
 		if(redcount == 0) {
@@ -694,7 +695,7 @@ namespace main_savitch_14 {
                                                 	moves.push(m);
                                 	}
                         	}
-                	}	
+                	}
         	}
 	}
 
@@ -703,7 +704,7 @@ namespace main_savitch_14 {
 	///@details If red has more pieces on the board, return HUMAN. If black has more pieces on the board, return COMPUTER. If red and black have the same
 	/// amount of pieces on the board return NEUTRAL.
 	///@return HUMAN, COMPUTER, or NEUTRAL
- 
+
 		if(redcount > blackcount)
 			return HUMAN;
 		else if(blackcount > redcount)

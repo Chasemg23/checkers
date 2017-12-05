@@ -5,6 +5,9 @@
 #include <string>     // Provides string
 #include "game.h"     // Provides definition of game class
 using namespace std;
+///@file game.cc
+///@brief Code for the functions that structure the game
+///@author Savitch
 
 namespace main_savitch_14
 {
@@ -52,9 +55,9 @@ namespace main_savitch_14
 	///@return User's move stored in string variable answer
 
 	string answer;
-	
+
 	display_message("\nHuman is red and Computer is black. Moves are entered this way: a6b5\n");
-	display_message("The first two characters are the position of the piece you want to move" 
+	display_message("The first two characters are the position of the piece you want to move"
 			" and the last two characters are the position you want to move to.\n");
 	display_message("Enter your move: ");
 	getline(cin, answer);
@@ -95,7 +98,7 @@ namespace main_savitch_14
 	int value;             ///< Value of a board position after opponent moves
     	int best_value;        ///< Evaluation of best opponent move
     	game* future;          ///< Pointer to a future version of this game
-	
+
 	if (look_ahead == 0 || is_game_over( ))
 	{
 	    if (last_mover( ) == COMPUTER)
@@ -135,10 +138,10 @@ namespace main_savitch_14
 	int best_value;
 	string best_move;
 	game* future;
-	
+
 	compute_moves(moves);
 	assert(!moves.empty( ));
-	
+
 	best_value = INT_MIN;
 	while (!moves.empty( ))
 	{
@@ -174,7 +177,3 @@ namespace main_savitch_14
 	make_move(move);
     }
 }
-
-	
-///@brief Code for the functions that structure the game
-///@author Savitch

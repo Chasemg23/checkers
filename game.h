@@ -3,6 +3,17 @@
 #include <queue>   // Provides queue<string>
 #include <string>  // Provides string
 
+///@file game.h
+///@brief Function definitions for game class
+///@author Savitch
+
+/**
+  * Walter Savitch
+  * game.h
+  *
+  * CS3560 Term Project
+*/
+
 namespace main_savitch_14
 {
     class game
@@ -11,23 +22,23 @@ namespace main_savitch_14
 	void clear() const;
 
 	enum who { HUMAN, NEUTRAL, COMPUTER }; ///< Possible game outcomes
-	
+
 	///@brief Constructor for game class
 	///@details Sets the move number to zero
 	game( ) { move_number = 0; }
 
 	///@brief Destructor for game class
 	virtual ~game( ) { }
-	
+
 	who play( );
 
     protected:
 	virtual void display_message(const std::string& message) const;
     	virtual std::string get_user_move( );
-	
+
 	///@details Decides who the last mover was based on the move number, 1 = Human or 0 = Computer
 	///@return Enumeration value, either Human or Computer
-	virtual who last_mover( ) const 
+	virtual who last_mover( ) const
 	    { return (move_number % 2 == 1 ? HUMAN : COMPUTER); }
 
 	///@return Number of moves completed
@@ -63,7 +74,7 @@ namespace main_savitch_14
 	int move_number;                     ///< Integer that stores the number of moves made so far
 
 	static const int SEARCH_LEVELS = 4;  ///< Levels for look-ahead evaluation
-	
+
 	int eval_with_lookahead(int look_ahead, int beat_this);
 	void make_computer_move( );
 	void make_human_move( );

@@ -1,5 +1,13 @@
-///@brief Defines functions for the pieces on the board
+///@file space.cc
+///@brief Implements functions for the pieces on the board
 ///@author Chase Gindlesperger
+
+/**
+	* Chase Gindlesperger
+	* space.cc
+	*
+	* CS3560 Term Project
+*/
 
 #include <iostream>
 #include "colors.h"
@@ -7,6 +15,7 @@
 
 namespace main_savitch_14 {
 
+	///@details Outputs spaces on board according to their values in board[]
 	void space::output() const{
         	if(isempty())
             		cout << "   ";			///< If the space is empty output four spaces

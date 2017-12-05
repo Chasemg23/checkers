@@ -24,6 +24,7 @@
 //
 //***********************************************************
 
+///@file colors.h
 ///@brief Colors class that makes constant variables for colors that can be used
 ///@details To make text different colors use one of the variables like this: cout << BLUE << "Example" << endl;
 ///@author Matthew Beldyk
@@ -64,4 +65,3 @@ const string B_CYAN    = "\e[46m";
 const string B_WHITE   = "\e[47m";
 
 #endif //COLORS_H
-
